@@ -1,0 +1,6 @@
+.gitignore
+.dockerignore
+images
+grafana.json
+LICENSE
+README.md
