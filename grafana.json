@@ -312,7 +312,6 @@
             "mode": "thresholds"
           },
           "mappings": [],
-          "max": 12,
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -322,38 +321,40 @@
                 "value": null
               },
               {
-                "color": "super-light-yellow",
-                "value": 3
+                "color": "light-yellow",
+                "value": 80
+              },
+              {
+                "color": "dark-yellow",
+                "value": 90
               },
               {
                 "color": "orange",
-                "value": 5.1
-              },
-              {
-                "color": "dark-orange",
-                "value": 7.1
+                "value": 105
               },
               {
                 "color": "dark-red",
-                "value": 10.1
+                "value": 125
               }
             ]
-          }
+          },
+          "unit": "fahrenheit"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
-        "w": 4,
+        "h": 3,
+        "w": 3,
         "x": 6,
         "y": 3
       },
-      "hideTimeOverride": true,
-      "id": 20,
+      "id": 49,
       "options": {
-        "minVizHeight": 75,
-        "minVizWidth": 75,
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -361,19 +362,19 @@
           "fields": "",
           "values": false
         },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "sizing": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
       "pluginVersion": "11.3.1",
       "targets": [
         {
           "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "awp_uv{station=\"$station\"}",
+          "editorMode": "code",
+          "expr": "-42.379 \n+ (2.04901523 * awp_tempf{station=\"$station\"}) \n+ (10.14333127 * awp_humidity{station=\"$station\"}) \n+ (-0.22475541 * awp_tempf{station=\"$station\"} * awp_humidity{station=\"$station\"}) \n+ (-0.00683783 * (awp_tempf{station=\"$station\"} ^ 2)) \n+ (-0.05481717 * (awp_humidity{station=\"$station\"} ^ 2)) \n+ (0.00122874 * (awp_tempf{station=\"$station\"} ^ 2) * awp_humidity{station=\"$station\"}) \n+ (0.00085282 * awp_tempf{station=\"$station\"} * (awp_humidity{station=\"$station\"} ^ 2)) \n+ (-0.00000199 * (awp_tempf{station=\"$station\"} ^ 2) * (awp_humidity{station=\"$station\"} ^ 2))",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
-          "legendFormat": "__auto",
+          "legendFormat": "Outdoor Temperature",
           "range": true,
           "refId": "A",
           "useBackend": false,
@@ -383,9 +384,8 @@
           }
         }
       ],
-      "timeFrom": "1m",
-      "title": "UV Index",
-      "type": "gauge"
+      "title": "Heat Index",
+      "type": "stat"
     },
     {
       "datasource": {
@@ -430,9 +430,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
-        "w": 6,
-        "x": 10,
+        "h": 3,
+        "w": 3,
+        "x": 9,
         "y": 3
       },
       "hideTimeOverride": true,
@@ -486,6 +486,79 @@
           "color": {
             "mode": "thresholds"
           },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 15
+              },
+              {
+                "color": "dark-green",
+                "value": 30
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 12,
+        "y": 3
+      },
+      "id": 47,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.3.1",
+      "targets": [
+        {
+          "editorMode": "code",
+          "expr": "(1758859200 - time()) / 86400",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
+        }
+      ],
+      "title": "Growing Days Left",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
           "mappings": [
             {
               "options": {
@@ -514,7 +587,7 @@
                 "from": 22.51,
                 "result": {
                   "index": 2,
-                  "text": "North-East"
+                  "text": "NorthEast"
                 },
                 "to": 67.5
               },
@@ -536,7 +609,7 @@
                 "from": 112.51,
                 "result": {
                   "index": 4,
-                  "text": "South-East"
+                  "text": "SouthEast"
                 },
                 "to": 157.5
               },
@@ -558,7 +631,7 @@
                 "from": 202.51,
                 "result": {
                   "index": 6,
-                  "text": "South-West"
+                  "text": "SouthWest"
                 },
                 "to": 247.5
               },
@@ -580,7 +653,7 @@
                 "from": 292.51,
                 "result": {
                   "index": 8,
-                  "text": "North-West"
+                  "text": "NorthWest"
                 },
                 "to": 337.5
               },
@@ -792,7 +865,7 @@
       "targets": [
         {
           "disableTextWrap": false,
-          "editorMode": "builder",
+          "editorMode": "code",
           "expr": "awp_humidity{station=\"$station\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
@@ -808,6 +881,180 @@
       ],
       "timeFrom": "1m",
       "title": "Humidity",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 98,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red",
+                "value": null
+              },
+              {
+                "color": "dark-orange",
+                "value": 40
+              },
+              {
+                "color": "dark-green",
+                "value": 60
+              },
+              {
+                "color": "dark-red",
+                "value": 85
+              }
+            ]
+          },
+          "unit": "fahrenheit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 6,
+        "y": 6
+      },
+      "hideTimeOverride": true,
+      "id": 17,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.3.1",
+      "targets": [
+        {
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "awp_temp1f{station=\"$station\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
+        }
+      ],
+      "timeFrom": "1m",
+      "title": "Soil Temp",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 1200,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "super-light-yellow",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 201
+              },
+              {
+                "color": "dark-yellow",
+                "value": 601
+              },
+              {
+                "color": "dark-orange",
+                "value": 801
+              },
+              {
+                "color": "dark-red",
+                "value": 1000
+              }
+            ]
+          },
+          "unit": "Wm2"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 9,
+        "y": 6
+      },
+      "hideTimeOverride": true,
+      "id": 21,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.3.1",
+      "targets": [
+        {
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "awp_solarradiation{station=\"$station\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
+        }
+      ],
+      "timeFrom": "1m",
+      "title": "Solar Radiation",
       "type": "stat"
     },
     {
@@ -985,91 +1232,6 @@
       "type": "gauge"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "max": 98,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "dark-red",
-                "value": null
-              },
-              {
-                "color": "dark-orange",
-                "value": 40
-              },
-              {
-                "color": "dark-green",
-                "value": 60
-              },
-              {
-                "color": "dark-red",
-                "value": 85
-              }
-            ]
-          },
-          "unit": "fahrenheit"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 6,
-        "x": 10,
-        "y": 7
-      },
-      "hideTimeOverride": true,
-      "id": 17,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.3.1",
-      "targets": [
-        {
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "awp_temp1f{station=\"$station\"}",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A",
-          "useBackend": false,
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          }
-        }
-      ],
-      "timeFrom": "1m",
-      "title": "Soil Temp",
-      "type": "stat"
-    },
-    {
       "gridPos": {
         "h": 2,
         "w": 6,
@@ -1088,6 +1250,92 @@
       },
       "pluginVersion": "11.3.1",
       "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 12,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "super-light-yellow",
+                "value": 3
+              },
+              {
+                "color": "orange",
+                "value": 5.1
+              },
+              {
+                "color": "dark-orange",
+                "value": 7.1
+              },
+              {
+                "color": "dark-red",
+                "value": 10.1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 6,
+        "y": 9
+      },
+      "hideTimeOverride": true,
+      "id": 20,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "11.3.1",
+      "targets": [
+        {
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "awp_uv{station=\"$station\"}",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
+        }
+      ],
+      "timeFrom": "1m",
+      "title": "UV Index",
+      "type": "gauge"
     },
     {
       "datasource": {
@@ -1141,8 +1389,8 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 4,
-        "x": 6,
+        "w": 5,
+        "x": 11,
         "y": 9
       },
       "hideTimeOverride": true,
@@ -1460,168 +1708,6 @@
             "mode": "thresholds"
           },
           "mappings": [],
-          "max": 1200,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "super-light-yellow",
-                "value": null
-              },
-              {
-                "color": "yellow",
-                "value": 201
-              },
-              {
-                "color": "dark-yellow",
-                "value": 601
-              },
-              {
-                "color": "dark-orange",
-                "value": 801
-              },
-              {
-                "color": "dark-red",
-                "value": 1000
-              }
-            ]
-          },
-          "unit": "Wm2"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 10,
-        "y": 11
-      },
-      "hideTimeOverride": true,
-      "id": 21,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.3.1",
-      "targets": [
-        {
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "awp_solarradiation{station=\"$station\"}",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A",
-          "useBackend": false,
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          }
-        }
-      ],
-      "timeFrom": "1m",
-      "title": "Solar Radiation",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "dark-red",
-                "value": null
-              },
-              {
-                "color": "#EAB839",
-                "value": 15
-              },
-              {
-                "color": "dark-green",
-                "value": 30
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 13,
-        "y": 11
-      },
-      "id": 47,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "11.3.1",
-      "targets": [
-        {
-          "editorMode": "code",
-          "expr": "(1758859200 - time()) / 86400",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A",
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          }
-        }
-      ],
-      "title": "Growing Days Left",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -1793,7 +1879,7 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 8,
+        "w": 12,
         "x": 0,
         "y": 16
       },
@@ -1835,228 +1921,6 @@
       ],
       "title": " Total Rain",
       "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "scheme",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "dashed"
-            }
-          },
-          "mappings": [],
-          "max": 100,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "semi-dark-orange",
-                "value": null
-              },
-              {
-                "color": "semi-dark-green",
-                "value": 30
-              },
-              {
-                "color": "semi-dark-blue",
-                "value": 60
-              }
-            ]
-          },
-          "unit": "humidity"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 13,
-        "w": 8,
-        "x": 8,
-        "y": 16
-      },
-      "id": 41,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": false
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "11.3.1",
-      "targets": [
-        {
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "awp_humidity{station=\"$station\"}",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "legendFormat": "Outdoor Humidity",
-          "range": true,
-          "refId": "A",
-          "useBackend": false,
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          }
-        }
-      ],
-      "title": "Outdoor Humidity",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "scheme",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "dashed"
-            }
-          },
-          "mappings": [],
-          "max": 117,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "dark-blue",
-                "value": null
-              },
-              {
-                "color": "blue",
-                "value": 40
-              },
-              {
-                "color": "green",
-                "value": 50
-              },
-              {
-                "color": "orange",
-                "value": 78
-              },
-              {
-                "color": "dark-red",
-                "value": 95
-              }
-            ]
-          },
-          "unit": "fahrenheit"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 13,
-        "w": 8,
-        "x": 16,
-        "y": 16
-      },
-      "id": 40,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": false
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "11.3.1",
-      "targets": [
-        {
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "awp_tempf{station=\"$station\"}",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
-          "legendFormat": "Outdoor Temperature",
-          "range": true,
-          "refId": "A",
-          "useBackend": false,
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          }
-        }
-      ],
-      "title": "Outdoor Temperature",
-      "type": "timeseries"
     },
     {
       "datasource": {
@@ -2117,10 +1981,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 10,
-        "w": 8,
-        "x": 0,
-        "y": 19
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 16
       },
       "id": 3,
       "options": {
@@ -2200,43 +2064,36 @@
             }
           },
           "mappings": [],
-          "max": 12,
+          "max": 100,
           "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "semi-dark-orange",
                 "value": null
               },
               {
-                "color": "light-yellow",
-                "value": 3
+                "color": "semi-dark-green",
+                "value": 30
               },
               {
-                "color": "orange",
-                "value": 5.1
-              },
-              {
-                "color": "dark-orange",
-                "value": 7.1
-              },
-              {
-                "color": "dark-red",
-                "value": 10.1
+                "color": "semi-dark-blue",
+                "value": 60
               }
             ]
-          }
+          },
+          "unit": "humidity"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 13,
+        "h": 6,
         "w": 12,
         "x": 0,
-        "y": 29
+        "y": 19
       },
-      "id": 42,
+      "id": 41,
       "options": {
         "legend": {
           "calcs": [],
@@ -2254,10 +2111,10 @@
         {
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "awp_uv{station=\"$station\"}",
+          "expr": "avg_over_time(awp_humidity{station=\"$station\"}[1h])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
-          "legendFormat": "UV Index",
+          "legendFormat": "Outdoor Humidity",
           "range": true,
           "refId": "A",
           "useBackend": false,
@@ -2267,7 +2124,7 @@
           }
         }
       ],
-      "title": "UV Index",
+      "title": "Outdoor Humidity",
       "type": "timeseries"
     },
     {
@@ -2278,8 +2135,237 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds",
-            "seriesBy": "last"
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "max": 117,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              },
+              {
+                "color": "blue",
+                "value": 40
+              },
+              {
+                "color": "green",
+                "value": 50
+              },
+              {
+                "color": "orange",
+                "value": 78
+              },
+              {
+                "color": "dark-red",
+                "value": 95
+              }
+            ]
+          },
+          "unit": "fahrenheit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 25
+      },
+      "id": 40,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.3.1",
+      "targets": [
+        {
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "avg_over_time(awp_tempf{station=\"$station\"}[1h])",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "legendFormat": "Outdoor Temperature",
+          "range": true,
+          "refId": "A",
+          "useBackend": false,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
+        }
+      ],
+      "title": "Outdoor Temperature",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": 130,
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "light-yellow",
+                "value": 80
+              },
+              {
+                "color": "dark-yellow",
+                "value": 90
+              },
+              {
+                "color": "orange",
+                "value": 105
+              },
+              {
+                "color": "dark-red",
+                "value": 125
+              }
+            ]
+          },
+          "unit": "fahrenheit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 25
+      },
+      "id": 50,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.3.1",
+      "targets": [
+        {
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "-42.379 \n+ (2.04901523 * awp_tempf{station=\"$station\"}) \n+ (10.14333127 * awp_humidity{station=\"$station\"}) \n+ (-0.22475541 * awp_tempf{station=\"$station\"} * awp_humidity{station=\"$station\"}) \n+ (-0.00683783 * (awp_tempf{station=\"$station\"} ^ 2)) \n+ (-0.05481717 * (awp_humidity{station=\"$station\"} ^ 2)) \n+ (0.00122874 * (awp_tempf{station=\"$station\"} ^ 2) * awp_humidity{station=\"$station\"}) \n+ (0.00085282 * awp_tempf{station=\"$station\"} * (awp_humidity{station=\"$station\"} ^ 2)) \n+ (-0.00000199 * (awp_tempf{station=\"$station\"} ^ 2) * (awp_humidity{station=\"$station\"} ^ 2))",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "legendFormat": "Outdoor Temperature",
+          "range": true,
+          "refId": "A",
+          "useBackend": false,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
+        }
+      ],
+      "title": "Heat Index Temperature",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
           },
           "custom": {
             "axisBorderShow": false,
@@ -2315,7 +2401,122 @@
             }
           },
           "mappings": [],
-          "max": 500,
+          "max": 12,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "light-yellow",
+                "value": 3
+              },
+              {
+                "color": "orange",
+                "value": 5.1
+              },
+              {
+                "color": "dark-orange",
+                "value": 7.1
+              },
+              {
+                "color": "dark-red",
+                "value": 10.1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 34
+      },
+      "id": 42,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.3.1",
+      "targets": [
+        {
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "avg_over_time(awp_uv{station=\"$station\"}[1h])",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "legendFormat": "UV Index",
+          "range": true,
+          "refId": "A",
+          "useBackend": false,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          }
+        }
+      ],
+      "title": "UV Index",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": 100,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "scheme",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -2355,10 +2556,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 13,
+        "h": 9,
         "w": 12,
         "x": 12,
-        "y": 29
+        "y": 34
       },
       "id": 43,
       "links": [
@@ -2385,7 +2586,7 @@
         {
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "awp_pm25{station=\"$station\"}",
+          "expr": "avg_over_time(awp_pm25{station=\"$station\"}[1h])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "legendFormat": "__auto",
@@ -2477,10 +2678,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 13,
+        "h": 8,
         "w": 12,
         "x": 0,
-        "y": 42
+        "y": 43
       },
       "id": 44,
       "options": {
@@ -2499,8 +2700,8 @@
       "targets": [
         {
           "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "awp_windspeedmph{station=\"$station\"}",
+          "editorMode": "code",
+          "expr": "avg_over_time(awp_windspeedmph{station=\"$station\"}[1h])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "legendFormat": "__auto",
@@ -2579,7 +2780,7 @@
                 "from": 22.51,
                 "result": {
                   "index": 1,
-                  "text": "North-East"
+                  "text": "NorthEast"
                 },
                 "to": 67.5
               },
@@ -2601,7 +2802,7 @@
                 "from": 112.51,
                 "result": {
                   "index": 3,
-                  "text": "South-East"
+                  "text": "SouthEast"
                 },
                 "to": 157.5
               },
@@ -2623,7 +2824,7 @@
                 "from": 202.51,
                 "result": {
                   "index": 5,
-                  "text": "South-West"
+                  "text": "SouthWest"
                 },
                 "to": 247.5
               },
@@ -2645,7 +2846,7 @@
                 "from": 292.51,
                 "result": {
                   "index": 7,
-                  "text": "North-West"
+                  "text": "NorthWest"
                 },
                 "to": 337.5
               },
@@ -2667,10 +2868,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 13,
+        "h": 8,
         "w": 12,
         "x": 12,
-        "y": 42
+        "y": 43
       },
       "id": 46,
       "interval": "2h",
@@ -2732,13 +2933,13 @@
     ]
   },
   "time": {
-    "from": "now-2d",
+    "from": "now-7d",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Weather",
   "uid": "depg0z71vwagwa",
-  "version": 94,
+  "version": 109,
   "weekStart": ""
 }
