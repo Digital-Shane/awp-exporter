@@ -133,7 +133,6 @@ monitor and sensor 1 set to monitor soil temperature.
 ![Example Picture One](./images/dashboard-example-1.png)
 ![Example Picture Two](./images/dashboard-example-2.png)
 ![Example Picture Three](./images/dashboard-example-3.png)
-![Example Picture Four](./images/dashboard-example-4.png)
 
 ## Prometheus Configuration
 
