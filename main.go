@@ -151,13 +151,16 @@ func mirrorRequest(originalURL *url.URL, vals url.Values, station string) {
 		RawQuery: vals.Encode(),
 	}
 
+	// Create a logger with context for this mirror request
+	logger := slog.With(
+		slog.String("station", station),
+		slog.String("url", mirrorURL.String()),
+	)
+
 	// Create and send the mirror request
 	req, err := http.NewRequest("GET", mirrorURL.String(), nil)
 	if err != nil {
-		slog.Warn("Failed to create mirror request",
-			slog.String("station", station),
-			slog.String("url", mirrorURL.String()),
-			slog.Any("error", err))
+		logger.Warn("Failed to create mirror request", slog.Any("error", err))
 		return
 	}
 
@@ -166,24 +169,15 @@ func mirrorRequest(originalURL *url.URL, vals url.Values, station string) {
 
 	resp, err := mirrorClient.Do(req)
 	if err != nil {
-		slog.Warn("Failed to send mirror request",
-			slog.String("station", station),
-			slog.String("url", mirrorURL.String()),
-			slog.Any("error", err))
+		logger.Warn("Failed to send mirror request", slog.Any("error", err))
 		return
 	}
 	defer resp.Body.Close()
 
 	if resp.StatusCode >= 400 {
-		slog.Warn("Mirror request returned error status",
-			slog.String("station", station),
-			slog.String("url", mirrorURL.String()),
-			slog.Int("status", resp.StatusCode))
+		logger.Warn("Mirror request returned error status", slog.Int("status", resp.StatusCode))
 	} else {
-		slog.Debug("Mirror request successful",
-			slog.String("station", station),
-			slog.String("url", mirrorURL.String()),
-			slog.Int("status", resp.StatusCode))
+		logger.Debug("Mirror request successful", slog.Int("status", resp.StatusCode))
 	}
 }
 
