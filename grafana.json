@@ -21,7 +21,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "11.3.1"
+      "version": "12.0.2"
     },
     {
       "type": "datasource",
@@ -66,7 +66,7 @@
   },
   "editable": true,
   "fiscalYearStartMonth": 0,
-  "graphTooltip": 0,
+  "graphTooltip": 1,
   "id": null,
   "links": [],
   "panels": [
@@ -100,7 +100,7 @@
         "content": "# Indoors",
         "mode": "markdown"
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "type": "text"
     },
     {
@@ -120,7 +120,7 @@
         "content": "# Outdoors",
         "mode": "markdown"
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "type": "text"
     },
     {
@@ -140,19 +140,18 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue",
-                "value": null
+                "color": "dark-blue"
               },
               {
                 "color": "blue",
                 "value": 60
               },
               {
-                "color": "green",
+                "color": "dark-green",
                 "value": 68
               },
               {
-                "color": "orange",
+                "color": "semi-dark-orange",
                 "value": 78
               },
               {
@@ -190,7 +189,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -229,8 +228,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue",
-                "value": null
+                "color": "dark-blue"
               },
               {
                 "color": "blue",
@@ -241,8 +239,12 @@
                 "value": 50
               },
               {
-                "color": "orange",
-                "value": 78
+                "color": "dark-yellow",
+                "value": 75
+              },
+              {
+                "color": "semi-dark-orange",
+                "value": 85
               },
               {
                 "color": "dark-red",
@@ -279,7 +281,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -317,24 +319,27 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "dark-blue"
               },
               {
-                "color": "light-yellow",
-                "value": 80
+                "color": "blue",
+                "value": 40
+              },
+              {
+                "color": "dark-green",
+                "value": 50
               },
               {
                 "color": "dark-yellow",
-                "value": 90
+                "value": 75
               },
               {
-                "color": "orange",
-                "value": 105
+                "color": "semi-dark-orange",
+                "value": 85
               },
               {
                 "color": "dark-red",
-                "value": 125
+                "value": 95
               }
             ]
           },
@@ -348,6 +353,7 @@
         "x": 6,
         "y": 3
       },
+      "hideTimeOverride": true,
       "id": 49,
       "options": {
         "colorMode": "value",
@@ -366,7 +372,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -384,6 +390,7 @@
           }
         }
       ],
+      "timeFrom": "5m",
       "title": "Heat Index",
       "type": "stat"
     },
@@ -404,8 +411,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "super-light-blue",
-                "value": null
+                "color": "super-light-blue"
               },
               {
                 "color": "blue",
@@ -454,7 +460,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -492,8 +498,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-red",
-                "value": null
+                "color": "dark-red"
               },
               {
                 "color": "#EAB839",
@@ -532,7 +537,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "editorMode": "code",
@@ -664,8 +669,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "orange",
-                "value": null
+                "color": "dark-purple"
               }
             ]
           },
@@ -698,7 +702,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "datasource": {
@@ -738,11 +742,10 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "semi-dark-orange",
-                "value": null
+                "color": "semi-dark-orange"
               },
               {
-                "color": "semi-dark-green",
+                "color": "dark-green",
                 "value": 30
               },
               {
@@ -780,7 +783,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -819,11 +822,10 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "semi-dark-orange",
-                "value": null
+                "color": "semi-dark-orange"
               },
               {
-                "color": "semi-dark-green",
+                "color": "dark-green",
                 "value": 30
               },
               {
@@ -861,7 +863,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -900,11 +902,10 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-red",
-                "value": null
+                "color": "dark-red"
               },
               {
-                "color": "dark-orange",
+                "color": "semi-dark-orange",
                 "value": 40
               },
               {
@@ -912,8 +913,12 @@
                 "value": 60
               },
               {
-                "color": "dark-red",
+                "color": "semi-dark-orange",
                 "value": 85
+              },
+              {
+                "color": "dark-red",
+                "value": 95
               }
             ]
           },
@@ -946,7 +951,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -985,8 +990,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "super-light-yellow",
-                "value": null
+                "color": "super-light-yellow"
               },
               {
                 "color": "yellow",
@@ -1035,7 +1039,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -1074,8 +1078,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-green",
-                "value": null
+                "color": "dark-green"
               },
               {
                 "color": "semi-dark-yellow",
@@ -1122,7 +1125,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -1161,8 +1164,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-green",
-                "value": null
+                "color": "dark-green"
               },
               {
                 "color": "semi-dark-yellow",
@@ -1209,7 +1211,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -1248,7 +1250,7 @@
         "content": "# Batteries",
         "mode": "markdown"
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "type": "text"
     },
     {
@@ -1268,8 +1270,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "dark-green"
               },
               {
                 "color": "super-light-yellow",
@@ -1315,7 +1316,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -1354,8 +1355,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-green",
-                "value": null
+                "color": "dark-green"
               },
               {
                 "color": "light-yellow",
@@ -1417,7 +1417,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -1468,8 +1468,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-red",
-                "value": null
+                "color": "dark-red"
               },
               {
                 "color": "dark-green",
@@ -1504,7 +1503,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -1554,8 +1553,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-red",
-                "value": null
+                "color": "dark-red"
               },
               {
                 "color": "dark-green",
@@ -1590,7 +1588,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -1640,8 +1638,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-red",
-                "value": null
+                "color": "dark-red"
               },
               {
                 "color": "dark-green",
@@ -1676,7 +1673,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -1712,8 +1709,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-green",
-                "value": null
+                "color": "dark-green"
               }
             ]
           },
@@ -1746,7 +1742,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -1783,8 +1779,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-green",
-                "value": null
+                "color": "dark-green"
               }
             ]
           },
@@ -1817,7 +1812,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -1868,8 +1863,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue",
-                "value": null
+                "color": "dark-blue"
               }
             ]
           },
@@ -1901,7 +1895,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "datasource": {
@@ -1931,7 +1925,7 @@
         "defaults": {
           "color": {
             "fixedColor": "dark-blue",
-            "mode": "fixed"
+            "mode": "thresholds"
           },
           "custom": {
             "axisBorderShow": false,
@@ -1942,8 +1936,8 @@
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
+            "fillOpacity": 10,
+            "gradientMode": "scheme",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -1951,7 +1945,7 @@
             },
             "insertNulls": false,
             "lineInterpolation": "linear",
-            "lineWidth": 1,
+            "lineWidth": 3,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
@@ -1963,16 +1957,24 @@
               "mode": "none"
             },
             "thresholdsStyle": {
-              "mode": "off"
+              "mode": "dashed"
             }
           },
+          "displayName": "In/hr",
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
+                "color": "light-blue"
+              },
+              {
+                "color": "blue",
+                "value": 1
+              },
+              {
                 "color": "dark-blue",
-                "value": null
+                "value": 2
               }
             ]
           },
@@ -1995,11 +1997,12 @@
           "showLegend": false
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "datasource": {
@@ -2011,7 +2014,7 @@
           "expr": "awp_hourlyrainin{station=\"$station\"}",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
-          "legendFormat": "In/hr",
+          "legendFormat": "__auto",
           "range": true,
           "refId": "A",
           "useBackend": false
@@ -2039,7 +2042,7 @@
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 0,
+            "fillOpacity": 10,
             "gradientMode": "scheme",
             "hideFrom": {
               "legend": false,
@@ -2048,12 +2051,12 @@
             },
             "insertNulls": false,
             "lineInterpolation": "linear",
-            "lineWidth": 1,
+            "lineWidth": 3,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -2063,6 +2066,7 @@
               "mode": "dashed"
             }
           },
+          "displayName": "Humidity",
           "mappings": [],
           "max": 100,
           "min": 0,
@@ -2070,8 +2074,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "semi-dark-orange",
-                "value": null
+                "color": "semi-dark-orange"
               },
               {
                 "color": "semi-dark-green",
@@ -2102,11 +2105,12 @@
           "showLegend": false
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -2143,11 +2147,12 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMax": 120,
             "axisSoftMin": 0,
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 0,
+            "fillOpacity": 10,
             "gradientMode": "scheme",
             "hideFrom": {
               "legend": false,
@@ -2156,12 +2161,12 @@
             },
             "insertNulls": false,
             "lineInterpolation": "linear",
-            "lineWidth": 1,
+            "lineWidth": 3,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -2171,14 +2176,14 @@
               "mode": "dashed"
             }
           },
+          "displayName": "Temperature",
           "mappings": [],
           "max": 117,
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue",
-                "value": null
+                "color": "dark-blue"
               },
               {
                 "color": "blue",
@@ -2189,8 +2194,12 @@
                 "value": 50
               },
               {
-                "color": "orange",
-                "value": 78
+                "color": "dark-yellow",
+                "value": 75
+              },
+              {
+                "color": "dark-orange",
+                "value": 85
               },
               {
                 "color": "dark-red",
@@ -2217,11 +2226,12 @@
           "showLegend": false
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -2229,7 +2239,7 @@
           "expr": "avg_over_time(awp_tempf{station=\"$station\"}[1h])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
-          "legendFormat": "Outdoor Temperature",
+          "legendFormat": "__auto",
           "range": true,
           "refId": "A",
           "useBackend": false,
@@ -2258,12 +2268,12 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
-            "axisSoftMax": 130,
+            "axisSoftMax": 115,
             "axisSoftMin": 0,
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 0,
+            "fillOpacity": 10,
             "gradientMode": "scheme",
             "hideFrom": {
               "legend": false,
@@ -2272,12 +2282,15 @@
             },
             "insertNulls": false,
             "lineInterpolation": "linear",
-            "lineWidth": 1,
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 3,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -2287,29 +2300,33 @@
               "mode": "dashed"
             }
           },
+          "displayName": "Heat Index",
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
+                "color": "dark-blue"
+              },
+              {
+                "color": "blue",
+                "value": 40
+              },
+              {
                 "color": "green",
-                "value": null
+                "value": 50
               },
               {
-                "color": "light-yellow",
-                "value": 80
+                "color": "yellow",
+                "value": 75
               },
               {
-                "color": "dark-yellow",
-                "value": 90
-              },
-              {
-                "color": "orange",
-                "value": 105
+                "color": "dark-orange",
+                "value": 85
               },
               {
                 "color": "dark-red",
-                "value": 125
+                "value": 95
               }
             ]
           },
@@ -2332,19 +2349,20 @@
           "showLegend": false
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
           "editorMode": "code",
-          "expr": "-42.379 \n+ (2.04901523 * awp_tempf{station=\"$station\"}) \n+ (10.14333127 * awp_humidity{station=\"$station\"}) \n+ (-0.22475541 * awp_tempf{station=\"$station\"} * awp_humidity{station=\"$station\"}) \n+ (-0.00683783 * (awp_tempf{station=\"$station\"} ^ 2)) \n+ (-0.05481717 * (awp_humidity{station=\"$station\"} ^ 2)) \n+ (0.00122874 * (awp_tempf{station=\"$station\"} ^ 2) * awp_humidity{station=\"$station\"}) \n+ (0.00085282 * awp_tempf{station=\"$station\"} * (awp_humidity{station=\"$station\"} ^ 2)) \n+ (-0.00000199 * (awp_tempf{station=\"$station\"} ^ 2) * (awp_humidity{station=\"$station\"} ^ 2))",
+          "expr": "-42.379\n+ (2.04901523 * avg_over_time(awp_tempf{station=\"$station\"}[1h]))\n+ (10.14333127 * avg_over_time(awp_humidity{station=\"$station\"}[1h]))\n+ (-0.22475541 * avg_over_time(awp_tempf{station=\"$station\"}[1h]) * avg_over_time(awp_humidity{station=\"$station\"}[1h]))\n+ (-0.00683783 * (avg_over_time(awp_tempf{station=\"$station\"}[1h]) ^ 2))\n+ (-0.05481717 * (avg_over_time(awp_humidity{station=\"$station\"}[1h]) ^ 2))\n+ (0.00122874 * (avg_over_time(awp_tempf{station=\"$station\"}[1h]) ^ 2) * avg_over_time(awp_humidity{station=\"$station\"}[1h]))\n+ (0.00085282 * avg_over_time(awp_tempf{station=\"$station\"}[1h]) * (avg_over_time(awp_humidity{station=\"$station\"}[1h]) ^ 2))\n+ (-0.00000199 * (avg_over_time(awp_tempf{station=\"$station\"}[1h]) ^ 2) * (avg_over_time(awp_humidity{station=\"$station\"}[1h]) ^ 2))",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
-          "legendFormat": "Outdoor Temperature",
+          "legendFormat": "__auto",
           "range": true,
           "refId": "A",
           "useBackend": false,
@@ -2376,7 +2394,7 @@
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 0,
+            "fillOpacity": 10,
             "gradientMode": "scheme",
             "hideFrom": {
               "legend": false,
@@ -2385,12 +2403,12 @@
             },
             "insertNulls": false,
             "lineInterpolation": "linear",
-            "lineWidth": 1,
+            "lineWidth": 3,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -2400,6 +2418,7 @@
               "mode": "dashed"
             }
           },
+          "displayName": "UV Index",
           "mappings": [],
           "max": 12,
           "min": 0,
@@ -2407,8 +2426,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "light-yellow",
@@ -2416,15 +2434,15 @@
               },
               {
                 "color": "orange",
-                "value": 5.1
+                "value": 6
               },
               {
                 "color": "dark-orange",
-                "value": 7.1
+                "value": 8
               },
               {
                 "color": "dark-red",
-                "value": 10.1
+                "value": 11
               }
             ]
           }
@@ -2438,6 +2456,7 @@
         "y": 34
       },
       "id": 42,
+      "interval": "30m",
       "options": {
         "legend": {
           "calcs": [],
@@ -2446,19 +2465,20 @@
           "showLegend": false
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "avg_over_time(awp_uv{station=\"$station\"}[1h])",
+          "expr": "avg_over_time(awp_uv{station=\"$station\"}[10m])",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
-          "legendFormat": "UV Index",
+          "legendFormat": "__auto",
           "range": true,
           "refId": "A",
           "useBackend": false,
@@ -2492,7 +2512,7 @@
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 0,
+            "fillOpacity": 10,
             "gradientMode": "scheme",
             "hideFrom": {
               "legend": false,
@@ -2501,12 +2521,12 @@
             },
             "insertNulls": false,
             "lineInterpolation": "linear",
-            "lineWidth": 1,
+            "lineWidth": 3,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -2516,14 +2536,14 @@
               "mode": "dashed"
             }
           },
+          "displayName": "Air Quality",
           "mappings": [],
           "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-green",
-                "value": null
+                "color": "dark-green"
               },
               {
                 "color": "super-light-yellow",
@@ -2577,11 +2597,12 @@
           "showLegend": false
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -2621,7 +2642,7 @@
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 0,
+            "fillOpacity": 10,
             "gradientMode": "scheme",
             "hideFrom": {
               "legend": false,
@@ -2630,12 +2651,12 @@
             },
             "insertNulls": false,
             "lineInterpolation": "linear",
-            "lineWidth": 1,
+            "lineWidth": 3,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -2645,6 +2666,7 @@
               "mode": "dashed"
             }
           },
+          "displayName": "Wind Speed",
           "mappings": [],
           "max": 25,
           "min": 0,
@@ -2652,8 +2674,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-green",
-                "value": null
+                "color": "dark-green"
               },
               {
                 "color": "semi-dark-yellow",
@@ -2692,11 +2713,12 @@
           "showLegend": false
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "disableTextWrap": false,
@@ -2858,8 +2880,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "orange",
-                "value": null
+                "color": "orange"
               }
             ]
           },
@@ -2883,11 +2904,12 @@
           "showLegend": false
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.0.2",
       "targets": [
         {
           "datasource": {
@@ -2910,8 +2932,11 @@
       "type": "timeseries"
     }
   ],
-  "schemaVersion": 40,
-  "tags": [],
+  "refresh": "1m",
+  "schemaVersion": 41,
+  "tags": [
+    "weather"
+  ],
   "templating": {
     "list": [
       {
@@ -2933,13 +2958,22 @@
     ]
   },
   "time": {
-    "from": "now-7d",
+    "from": "now-2d",
     "to": "now"
   },
-  "timepicker": {},
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m"
+    ]
+  },
   "timezone": "browser",
   "title": "Weather",
   "uid": "depg0z71vwagwa",
-  "version": 109,
+  "version": 144,
   "weekStart": ""
 }

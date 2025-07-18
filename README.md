@@ -10,6 +10,7 @@ stations with any number of connected sensors.
   data ingestion footprints.
 - **Dynamic Metrics**: Automatically creates appropriate metrics for all data reported by your device.
 - **Lightweight**: Uses Go's built-in HTTP server and minimal external dependencies to run efficiently.
+- **Request Mirroring**: Optionally mirror data to other services, like Ambient Weather's cloud services or other weather data collectors.
 
 ## Getting Started
 
@@ -26,6 +27,10 @@ stations with any number of connected sensors.
 |-----------|----------------------------------------|---------|
 | `port`    | Port on which the AWP exporter listens | `6255`  |
 | `v`       | Enable verbose (debug) logging         | `false` |
+| `mirror-host` | Hostname to mirror requests to (enables mirroring when set) | `""` (disabled) |
+| `mirror-port` | Port to mirror requests to | `8000` |
+| `mirror-path` | Path to mirror requests to | `/data/report` |
+| `mirror-https` | Use HTTPS for mirror requests | `false` |
 
 
 ### Manual Instal
@@ -47,6 +52,12 @@ awp-exporter -port=6256
 
 # Enable verbose debug logging
 awp-exporter -v
+
+# Enable request mirroring to Ambient Weather
+awp-exporter -mirror-host="rt.ambientweather.net"
+
+# Enable request mirroring with all options
+awp-exporter -mirror-host="example.com" -mirror-port=443 -mirror-path="/custom/path" -mirror-https
 ```
 
 ### Docker Install
@@ -132,7 +143,22 @@ monitor and sensor 1 set to monitor soil temperature.
 
 ![Example Picture One](./images/dashboard-example-1.png)
 ![Example Picture Two](./images/dashboard-example-2.png)
-![Example Picture Three](./images/dashboard-example-3.png)
+
+## Request Mirroring
+
+By request I've added a handy feature that lets you mirror your weather data to other
+services while still collecting it for Prometheus. This is perfect if you want to keep
+using Ambient Weather's cloud services.
+
+### How to Enable Mirroring
+
+```bash
+# Mirror to Ambient Weather's servers
+awp-exporter -mirror-host="rt.ambientweather.net"
+
+# For other services that use HTTPS
+awp-exporter -mirror-host="example.com" -mirror-https -mirror-port=443 -mirror-path="/your/path"
+```
 
 ## Prometheus Configuration
 

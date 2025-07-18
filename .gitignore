@@ -3,3 +3,4 @@ vendor
 temp
 tmp
 .idea
+*.pid
